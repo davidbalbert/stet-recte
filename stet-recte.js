@@ -1,9 +1,10 @@
 WORD_MAPPINGS = {
+  "growth hackers": "marketing people",
   "growth hacker": "marketing person",
   "disrupt": "compete with",
   "disrupting": "competing with",
-  "curate": "filter",
   "curated": "filtered",
+  "curate": "filter",
   "web scale": "large",
   "google scale": "large",
   "social sharing": "spamming",
@@ -25,9 +26,10 @@ WORD_MAPPINGS = {
   "stealth": "doomed",
   "pre-?launch": "still-hopeful",
   "revolutionary": "improved",
+  "innovative": "improved",
   "consumers": "people",
   "consumer": "person",
-  "(rockstar|ninja)(-| )(programmer|developer)": "programmer",
+  "(rock-?star|ninja)(-| )(programmer|developer)": "programmer",
   "!!+": "!",
   "rediculo?us": "ridiculous",
   "startup (expert|advisor) ": "person",
@@ -36,7 +38,10 @@ WORD_MAPPINGS = {
   "mobile strategy": "iPhone app",
   "tablet": "iPad",
   "mvp|minimum viable product": "WordPress site",
-  "game mechanics": "badges"
+  "game mechanics": "badges",
+  "scene": "clusterfuck",
+  "viral": "spammy",
+  "virality": "spamminess"
 };
 
 WORD_REGEXPS = [];
