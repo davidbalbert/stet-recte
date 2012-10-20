@@ -12,13 +12,16 @@ function makeTitleCase(str) {
 
 function makeReplacementFunction(str) {
   return function(match) {
+    var span;
     if (match.toUpperCase() == match) {
-      return str.toUpperCase();
+      span = str.toUpperCase();
     } else if (match[0].toUpperCase() == match[0]) {
-      return makeTitleCase(str);
+      span = makeTitleCase(str);
     } else {
-      return str;
+      span = str;
     }
+
+    return "<span class='stet-recte-rollover' data-replace='" + match + "'>" + span + "</span>";
   };
 }
 
@@ -36,6 +39,11 @@ var treeWalker = document.createTreeWalker(
 
 while(treeWalker.nextNode()) {
   WORD_REGEXPS.forEach(function(regexp, i) {
-    treeWalker.currentNode.data = treeWalker.currentNode.data.replace(regexp, REPLACEMENT_FUNCTIONS[i]);
+    console.log(treeWalker.currentNode.data);
+    if (treeWalker.currentNode.data.match(regexp)) {
+      console.log("A MATCH!");
+      console.log(treeWalker.currentNode.parentElement);
+      treeWalker.currentNode.parentElement.innerHTML = treeWalker.currentNode.data.replace(regexp, REPLACEMENT_FUNCTIONS[i]);
+    }
   });
 }
