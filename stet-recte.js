@@ -23,10 +23,20 @@ WORD_MAPPINGS = {
   "the cloud": "online",
   "guru": "expert",
   "stealth": "doomed",
-  "prelaunch": "still hopeful",
+  "pre-?launch": "still-hopeful",
   "revolutionary": "improved",
+  "consumers": "people",
   "consumer": "person",
-  "(rockstar|ninja) (programmer|developer)": "programmer"
+  "(rockstar|ninja)(-| )(programmer|developer)": "programmer",
+  "!!+": "!",
+  "rediculo?us": "ridiculous",
+  "startup (expert|advisor) ": "person",
+  "daily deal": "coupon",
+  "top(-| )?tier": "good",
+  "mobile strategy": "iPhone app",
+  "tablet": "iPad",
+  "mvp|minimum viable product": "WordPress site",
+  "game mechanics": "badges"
 };
 
 WORD_REGEXPS = []
