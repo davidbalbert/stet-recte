@@ -1,6 +1,32 @@
 WORD_MAPPINGS = {
   "growth hacker": "marketing person",
-  "disrupt": "compete with"
+  "disrupt": "compete with",
+  "disrupting": "competing with",
+  "curate": "filter",
+  "curated": "filtered",
+  "web scale": "large",
+  "google scale": "large",
+  "social sharing": "spamming",
+  "share": "spam",
+  "sharing": "spamming",
+  "monies": "money",
+  "leverage": "use",
+  "leveraged": "used",
+  "crushing it": "doing well",
+  "crushed it": "did well",
+  "pivot to": "try again with",
+  "very": "",
+  "a bit of": "",
+  "numerous": "many",
+  "utilize": "use",
+  "utilized": "used",
+  "the cloud": "online",
+  "guru": "expert",
+  "stealth": "doomed",
+  "prelaunch": "still hopeful",
+  "revolutionary": "improved",
+  "consumer": "person",
+  "(rockstar|ninja) (programmer|developer)": "programmer"
 };
 
 WORD_REGEXPS = []
