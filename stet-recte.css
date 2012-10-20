@@ -1,0 +1,9 @@
+.stet-recte-rollover {
+  border-bottom: 1px dotted;
+  cursor: pointer;
+}
+
+.stet-recte-rollover:hover {
+  text-decoration: line-through;
+  color: red;
+}
