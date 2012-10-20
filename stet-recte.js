@@ -57,3 +57,29 @@ elementsToReplace.forEach(function(matchInfo) {
   var replacementString = matchInfo[1];
   element.innerHTML = replacementString;
 });
+
+
+function addEventListeners(span, originalText, replacementText) {
+  if (originalText.length > replacementText.length) {
+    var difference = originalText.length - replacementText.length;
+    replacementText = replacementText + new Array(difference + 2).join("&nbsp;");
+  }
+
+  span.addEventListener("mouseover", function(e) {
+    e.target.innerHTML = replacementText;
+  });
+
+  span.addEventListener("mouseout", function(e) {
+    e.target.innerHTML = originalText;
+  });
+}
+
+var rolloverSpans = document.getElementsByClassName("stet-recte-rollover");
+var i;
+for (i = 0; i < rolloverSpans.length; i++) {
+  var span = rolloverSpans[i];
+  var replacementText = span.attributes["data-replace"].value;
+  var originalText = span.textContent;
+
+  addEventListeners(span, originalText, replacementText);
+}
