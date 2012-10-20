@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <title>Rollovertest</title>
+
+  <style type="text/css" media="screen">
+    .stet-recte-rollover {
+      border-bottom: 1px dotted;
+      cursor: pointer;
+    }
+
+    .stet-recte-rollover:hover {
+      text-decoration: line-through;
+      color: red;
+    }
+  </style>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $(".stet-recte-rollover").each(function() {
+        var $this = $(this);
+        var replacementText = $this.data("replace");
+        var originalText = $this[0].textContent;
+        $this.hover(function(e) {
+          this.textContent = replacementText;
+        }, function(e) {
+          this.textContent = originalText;
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <span class="stet-recte-rollover" data-replace="Goodbye">Hello</span><br />
+  <span class="stet-recte-rollover" data-replace="Big">Small</span>
+</body>
+</html>
