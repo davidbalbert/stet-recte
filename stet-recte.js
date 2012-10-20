@@ -39,12 +39,28 @@ WORD_MAPPINGS = {
   "game mechanics": "badges"
 };
 
-WORD_REGEXPS = []
-WORD_REPLACEMENTS = []
+WORD_REGEXPS = [];
+REPLACEMENT_FUNCTIONS = [];
+
+function makeTitleCase(str) {
+  return str[0].toUpperCase() + str.substr(1);
+}
+
+function makeReplacementFunction(str) {
+  return function(match) {
+    if (match.toUpperCase() == match) {
+      return str.toUpperCase();
+    } else if (match[0].toUpperCase() == match[0]) {
+      return makeTitleCase(str);
+    } else {
+      return str;
+    }
+  };
+}
 
 for (var key in WORD_MAPPINGS) {
-  WORD_REGEXPS.push(new RegExp(key, "i"));
-  WORD_REPLACEMENTS.push(WORD_MAPPINGS[key]);
+  WORD_REGEXPS.push(new RegExp(key, "gi"));
+  REPLACEMENT_FUNCTIONS.push(makeReplacementFunction(WORD_MAPPINGS[key]));
 }
 
 var treeWalker = document.createTreeWalker(
@@ -56,6 +72,6 @@ var treeWalker = document.createTreeWalker(
 
 while(treeWalker.nextNode()) {
   WORD_REGEXPS.forEach(function(regexp, i) {
-    treeWalker.currentNode.data = treeWalker.currentNode.data.replace(regexp, WORD_REPLACEMENTS[i]);
+    treeWalker.currentNode.data = treeWalker.currentNode.data.replace(regexp, REPLACEMENT_FUNCTIONS[i]);
   });
 }
