@@ -6,12 +6,20 @@ WORD_MAPPINGS = {
 WORD_REGEXPS = [];
 REPLACEMENT_FUNCTIONS = [];
 
-function upcaseFirstCharacter(str) {
+function makeTitleCase(str) {
   return str[0].toUpperCase() + str.substr(1);
 }
 
 function makeReplacementFunction(str) {
-  return function() { return str; }
+  return function(match) {
+    if (match.toUpperCase() == match) {
+      return str.toUpperCase();
+    } else if (match[0].toUpperCase() == match[0]) {
+      return makeTitleCase(str);
+    } else {
+      return str;
+    }
+  };
 }
 
 for (var key in WORD_MAPPINGS) {
