@@ -37,13 +37,23 @@ var treeWalker = document.createTreeWalker(
     false
 );
 
+elementsToReplace = [];
 while(treeWalker.nextNode()) {
+  var originalString = treeWalker.currentNode.data;
+  var replacementString = originalString;
   WORD_REGEXPS.forEach(function(regexp, i) {
-    console.log(treeWalker.currentNode.data);
-    if (treeWalker.currentNode.data.match(regexp)) {
-      console.log("A MATCH!");
-      console.log(treeWalker.currentNode.parentElement);
-      treeWalker.currentNode.parentElement.innerHTML = treeWalker.currentNode.data.replace(regexp, REPLACEMENT_FUNCTIONS[i]);
+    if (originalString.match(regexp)) {
+      replacementString = replacementString.replace(regexp, REPLACEMENT_FUNCTIONS[i])
     }
   });
+
+  if (replacementString != originalString) {
+    elementsToReplace.push([treeWalker.currentNode.parentElement, replacementString]);
+  }
 }
+
+elementsToReplace.forEach(function(matchInfo) {
+  var element = matchInfo[0];
+  var replacementString = matchInfo[1];
+  element.innerHTML = replacementString;
+});
