@@ -19,7 +19,7 @@ var treeWalker = document.createTreeWalker(
 );
 
 while(treeWalker.nextNode()) {
-  for (var i in WORD_REGEXPS) {
-    treeWalker.currentNode.data = treeWalker.currentNode.data.replace(WORD_REGEXPS[i], WORD_REPLACEMENTS[i]);
-  }
+  WORD_REGEXPS.forEach(function(regexp, i) {
+    treeWalker.currentNode.data = treeWalker.currentNode.data.replace(regexp, WORD_REPLACEMENTS[i]);
+  });
 }
