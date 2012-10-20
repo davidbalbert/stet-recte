@@ -53,16 +53,16 @@ function makeTitleCase(str) {
 
 function makeReplacementFunction(str) {
   return function(match) {
-    var span;
+    var content;
     if (match.toUpperCase() == match) {
-      span = str.toUpperCase();
+      content = str.toUpperCase();
     } else if (match[0].toUpperCase() == match[0]) {
-      span = makeTitleCase(str);
+      content = makeTitleCase(str);
     } else {
-      span = str;
+      content = str;
     }
 
-    return "<span class='stet-recte-rollover' data-replace='" + match + "'>" + span + "</span>";
+    return "<span class='stet-recte-rollover' data-replace='" + match + "'>" + content + "</span>";
   };
 }
 
