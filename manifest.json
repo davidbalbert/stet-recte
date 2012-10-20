@@ -1,0 +1,19 @@
+{
+  "name": "Stet Recte",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "A copy editor for the social^H^H^H^H^H^H web",
+  /*
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+  */
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["stet-rect.js"]
+    }
+  ]
+}
